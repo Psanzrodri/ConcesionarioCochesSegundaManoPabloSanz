@@ -19,17 +19,17 @@ public class Main {
             System.out.println("5. Buscar coches por modelo");
             System.out.println("6. Mostrar listado de coches por concesionario");
             System.out.println("7. Listar sedes");
-            System.out.println("8. Mostrar facturación total de la empresa"); // Nueva opción
+            System.out.println("8. Mostrar facturación total de la empresa");
             System.out.println("9. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar buffer
+            scanner.nextLine();
 
             switch (opcion) {
                 case 1 -> {
                     System.out.print("Ingrese la ciudad para la nueva sede: ");
                     String ciudad = scanner.nextLine();
-                    System.out.print("Ingrese el tamaño máximo de coches: ");
+                    System.out.print("Ingrese el tamaño maximo de coches: ");
                     int tamanyo = scanner.nextInt();
                     empresa.crearSede(ciudad, tamanyo);
                 }
@@ -38,20 +38,20 @@ public class Main {
                     String ciudad = scanner.nextLine();
                     Concesionario concesionario = empresa.getConcesionario(ciudad);
                     if (concesionario == null) {
-                        System.out.println("ERROR: La sede indicada no existe.");
+                        System.out.println("ERROR: La sede indicada no existe");
                         break;
                     }
                     System.out.print("Marca: ");
                     String marca = scanner.nextLine();
                     System.out.print("Modelo: ");
                     String modelo = scanner.nextLine();
-                    System.out.print("Matrícula: ");
+                    System.out.print("Matricula: ");
                     String matricula = scanner.nextLine();
                     System.out.print("Año: ");
                     int anyo = scanner.nextInt();
                     System.out.print("Precio: ");
                     double precio = scanner.nextDouble();
-                    System.out.print("Kilómetros: ");
+                    System.out.print("Kilometros: ");
                     int kms = scanner.nextInt();
                     if (!concesionario.adquirirCoche(new Coche(marca, modelo, matricula, anyo, precio, kms))) {
                         System.out.println("ERROR: No hay espacio en el concesionario.");
@@ -62,13 +62,13 @@ public class Main {
                     String ciudad = scanner.nextLine();
                     Concesionario concesionario = empresa.getConcesionario(ciudad);
                     if (concesionario == null) {
-                        System.out.println("ERROR: La sede indicada no existe.");
+                        System.out.println("ERROR: La sede indicada no existe");
                         break;
                     }
-                    System.out.print("Ingrese la matrícula del coche a vender: ");
+                    System.out.print("Ingrese la matricula del coche a vender: ");
                     String matricula = scanner.nextLine();
                     if (!concesionario.venderCoche(matricula)) {
-                        System.out.println("ERROR: No se encontró un coche con la matrícula indicada.");
+                        System.out.println("ERROR: No se encontro un coche con esta matricula");
                     }
                 }
                 case 4 -> {
@@ -84,7 +84,7 @@ public class Main {
                         }
                     }
                     if (!encontrados) {
-                        System.out.println("No se encontraron coches de la marca " + marca + " en ninguna sede.");
+                        System.out.println("No se encontraron coches de la marca " + marca + " en ninguna sede");
                     }
                 }
                 case 5 -> {
@@ -93,15 +93,15 @@ public class Main {
 
                     boolean encontrados = false;
                     for (Concesionario concesionario : empresa.getGrupo().values()) {
-                        var coches = concesionario.buscarCochesPorModelo(modelo); // Necesitamos este método
+                        var coches = concesionario.buscarCochesPorModelo(modelo);
                         if (!coches.isEmpty()) {
                             encontrados = true;
-                            System.out.println("--- Coches encontrados en " + concesionario + " ---");
+                            System.out.println("Coches encontrados en " + concesionario );
                             coches.forEach(System.out::println);
                         }
                     }
                     if (!encontrados) {
-                        System.out.println("No se encontraron coches del modelo " + modelo + " en ninguna sede.");
+                        System.out.println("No se encontraron coches del modelo " + modelo + " en ninguna sede");
                     }
                 }
                 case 6 -> {
@@ -109,20 +109,20 @@ public class Main {
                     String ciudad = scanner.nextLine();
                     Concesionario concesionario = empresa.getConcesionario(ciudad);
                     if (concesionario == null) {
-                        System.out.println("ERROR: La sede indicada no existe.");
+                        System.out.println("ERROR: La sede indicada no existe");
                     } else {
-                        System.out.println("--- Listado de coches en " + ciudad + " ---");
-                        concesionario.listarCoches(); // Necesitamos este método
+                        System.out.println(" Listado de coches en " + ciudad );
+                        concesionario.listarCoches();
                     }
                 }
                 case 7 -> empresa.listarSedes();
-                case 8 -> { // Nueva funcionalidad
-                    empresa.actualizarFacturacionTotal(); // Actualizamos la facturación total
-                    System.out.println("La facturación total de la empresa es: "
+                case 8 -> {
+                    empresa.actualizarFacturacionTotal();
+                    System.out.println("La facturacion total de la empresa es: "
                             + empresa.getFacturacionEmpresa() + " €");
                 }
-                case 9 -> System.out.println("¡Adiós!");
-                default -> System.out.println("Opción no válida.");
+                case 9 -> System.out.println("Adios");
+                default -> System.out.println("Opcion no valida");
             }
         } while (opcion != 9);
     }
