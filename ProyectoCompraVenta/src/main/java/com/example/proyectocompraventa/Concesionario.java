@@ -46,4 +46,24 @@ public class Concesionario {
         }
         return resultado;
     }
+
+    public ArrayList<Coche> buscarCochesPorModelo(String modelo) {
+        ArrayList<Coche> resultado = new ArrayList<>();
+        for (Coche coche : listadoCoches) {
+            if (coche.getModelo().equalsIgnoreCase(modelo)) {
+                resultado.add(coche);
+            }
+        }
+        return resultado;
+    }
+
+    public void listarCoches() {
+        if (listadoCoches.isEmpty()) {
+            System.out.println("El concesionario no tiene coches disponibles.");
+        } else {
+            listadoCoches.forEach(System.out::println);
+        }
+    }
+
+
 }
