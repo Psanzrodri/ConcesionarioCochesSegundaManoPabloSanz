@@ -18,26 +18,13 @@ public class Coche {
         this.kms = kms;
     }
 
-    // Getters y Setters
+    //Getters y Setters
     public String getMarca() { return marca; }
-    public void setMarca(String marca) { this.marca = marca; }
-
     public String getModelo() { return modelo; }
-    public void setModelo(String modelo) { this.modelo = modelo; }
-
     public String getMatricula() { return matricula; }
-    public void setMatricula(String matricula) { this.matricula = matricula; }
-
-    public int getAnyo() { return anyo; }
-    public void setAnyo(int anyo) { this.anyo = anyo; }
-
     public double getPrecio() { return precio; }
-    public void setPrecio(double precio) { this.precio = precio; }
 
-    public int getKms() { return kms; }
-    public void setKms(int kms) { this.kms = kms; }
-
-    // Método para aplicar descuento
+    //para aplicar descuento
     public void aplicarDescuento(int porcentaje) {
         if (porcentaje < 1 || porcentaje > 50) {
             System.out.println("ERROR: Debe especificar un valor entre 1 y 50.");
@@ -46,7 +33,7 @@ public class Coche {
         }
     }
 
-    // Método toString para mostrar la información del coche
+    //mostrar toda la info del coche
     @Override
     public String toString() {
         return "Marca: " + marca + ", Modelo: " + modelo + ", Matrícula: " + matricula +
