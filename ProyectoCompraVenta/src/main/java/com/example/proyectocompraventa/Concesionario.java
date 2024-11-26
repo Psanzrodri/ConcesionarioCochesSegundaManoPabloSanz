@@ -59,7 +59,7 @@ public class Concesionario {
 
     public void listarCoches() {
         if (listadoCoches.isEmpty()) {
-            System.out.println("El concesionario no tiene coches disponibles.");
+            System.out.println("El concesionario no tiene coches disponibles");
         } else {
             listadoCoches.forEach(System.out::println);
         }
