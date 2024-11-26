@@ -7,7 +7,7 @@ public class Empresa {
     private double facturacionEmpresa;
     private HashMap<String, Concesionario> grupo;
 
-    // Constructor
+    //constructor
     public Empresa(String nombre) {
         this.nombre = nombre;
         this.facturacionEmpresa = 0;
@@ -20,10 +20,10 @@ public class Empresa {
 
     public void crearSede(String ciudad, int tamanyoMaximo) {
         if (grupo.containsKey(ciudad)) {
-            System.out.println("ERROR: La sede en " + ciudad + " ya existe.");
+            System.out.println("ERROR: La sede en " + ciudad + " ya existe");
         } else {
             grupo.put(ciudad, new Concesionario(tamanyoMaximo));
-            System.out.println("Sede en " + ciudad + " creada con éxito.");
+            System.out.println("Sede en " + ciudad + " creada con exito");
         }
     }
 
@@ -43,11 +43,11 @@ public class Empresa {
 
     public void listarSedes() {
         if (grupo.isEmpty()) {
-            System.out.println("No hay sedes registradas.");
+            System.out.println("No hay sedes registradas");
         } else {
-            System.out.println("--- LISTADO DE SEDES ---");
+            System.out.println("- LISTADO DE SEDES -");
             grupo.forEach((ciudad, concesionario) -> {
-                System.out.println("- Sede: " + ciudad);
+                System.out.println("Sede: " + ciudad);
             });
         }
     }
